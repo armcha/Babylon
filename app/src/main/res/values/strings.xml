@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DynamicLocalizer</string>
+    <string name="name">Arman</string>
+    <string name="newOne">Arman</string>
+    <string name="second">Arman</string>
+    <string name="thi">Arman</string>
+    <string name="wow">Arman</string>
+    <string name="four">Arman</string>
+    <string name="five">Arman</string>
+    <string name="dummy">Arman</string>
+    <string name="just">Arman</string>
+    <string name="testing">Arman</string>
+    <string name="HackerLand">Arman </string>
+    <string name="friendlyName">Arman </string>
+</resources>
