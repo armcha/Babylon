@@ -11,7 +11,7 @@ import okhttp3.Request;
 public class FileDownloader {
 
     private FileDownloader() {
-        throw new RuntimeException("Private constructor cannot be accessed");
+        throw new BabylonException("Private constructor cannot be accessed");
     }
 
     static void downloadFile(String url, Callback callback) {

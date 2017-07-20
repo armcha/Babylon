@@ -20,7 +20,7 @@ import static com.luseen.babylon.LocaleConfig.TEMP_FILE_NAME;
 class FileHelper {
 
     private FileHelper() {
-        throw new RuntimeException("Private constructor cannot be accessed");
+        throw new BabylonException("Private constructor cannot be accessed");
     }
 
     static boolean isFileExist(Context context, String locale) {
@@ -45,7 +45,7 @@ class FileHelper {
             tempFile.delete();
             return file;
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("CreatePrimaryFile ", "Exception is - " + e.getMessage());
         }
         return null;
     }
@@ -62,7 +62,7 @@ class FileHelper {
             outputStream.close();
             return tempFile;
         } catch (Exception e) {
-            Log.e("Exception ", "" + e.getMessage());
+            Log.e("CreateTempFile ", "Exception is - " + e.getMessage());
         }
 
         return null;

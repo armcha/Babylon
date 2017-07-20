@@ -25,7 +25,6 @@ public class LocaleParser {
 
         FileInputStream stream = null;
         try {
-            //Log.e("getLocaleFileStrings ", "" + !file.exists());
             if (!file.exists()) {
                 return new SparseArray<>();
             }
@@ -82,15 +81,14 @@ public class LocaleParser {
             }
             return stringMap;
         } catch (Exception e) {
-            e.printStackTrace();
-            Log.e("getLocaleFileStrings ", "" + e.getMessage());
+            Log.e("ParseFile ", "Exception is - " + e.getMessage());
         } finally {
             if (stream != null) {
                 try {
                     stream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.e("getLocaleFileStrings ", "" + e.getMessage());
+                    Log.e("ParseFile ", "Exception is - " + e.getMessage());
                 }
             }
         }
@@ -130,7 +128,6 @@ public class LocaleParser {
                     name = null;
                 }
                 if (name != null && name.equals("string") && value != null && attrName != null && value.length() != 0 && attrName.length() != 0) {
-                    // int key = stringValues.get(attrName);
                     if (attrName.equalsIgnoreCase("locale"))
                         return value;
 
@@ -142,14 +139,14 @@ public class LocaleParser {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("getLocaleFileStrings ", "" + e.getMessage());
+            Log.e("ParseFile ", "Exception is - " + e.getMessage());
         } finally {
             if (stream != null) {
                 try {
                     stream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.e("getLocaleFileStrings ", "" + e.getMessage());
+                    Log.e("ParseFile ", "Exception is - " + e.getMessage());
                 }
             }
         }

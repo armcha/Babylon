@@ -1,8 +1,8 @@
 package com.luseen.babylon;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.os.Build;
+
+import java.util.Locale;
 
 /**
  * Created by Chatikyan on 14.07.2017.
@@ -14,23 +14,17 @@ public class Babylon {
         return new Babylon.Builder(context);
     }
 
-    public static String getStringById(Context context, int resId) {
-        return LocaleConfig.getInstance().getStringInternal(context, resId);
-    }
-
-    public static void onConfigurationChanged(Configuration newConfig) {
-        // TODO: 14.07.2017 getLocale
+    public static void setCurrentLocale(Context context, Locale locale) {
         LocaleConfig localeConfig = LocaleConfig.getInstance();
-        String newLocale;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            newLocale = newConfig.getLocales().get(0).getLanguage();
-        } else {
-            newLocale = newConfig.locale.getLanguage();
-        }
+        String newLocale = locale.getLanguage();
         boolean isLocaleChanged = Utils.isLocaleChanged(localeConfig.getCurrentLocale(), newLocale);
         if (isLocaleChanged) {
-            localeConfig.setCurrentLocale(newLocale);
+            localeConfig.setCurrentLocale(context, newLocale);
         }
+    }
+
+    public static void setStringReadyListener(StringReadyListener stringReadyListener) {
+        LocaleConfig.getInstance().setStringReadyListener(stringReadyListener);
     }
 
     public static class Builder {
